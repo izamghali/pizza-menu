@@ -2,24 +2,40 @@ import './styles/App.scss';
 
 // components
 import { Card } from './components/Card';
+import { Cart } from './components/Cart';
 
 function App() {
   // grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1
 
+  // p-6 lg:pl-10 lg:pr-0 lg:py-0
   return (
-    <div 
-      className="card-container
-      flex flex-wrap justify-center gap-10
-      border-4 border-blue-400
-      h-full lg:w-3/4
-      m-6 md:m-10
-    "> 
+    <body className='
+      flex flex-col lg:flex-row justify-between
+    '>
 
-      <Card
-      
-      />
+      {/* Menu Section */}
 
-    </div>
+      <div className='
+        border-4 border-violet-800
+        h-screen w-full 
+        py-6 pl-6
+        overflow-scroll
+      '>
+        <h2 className='heading-text mb-5 lg:text-left text-center'>Pizza List</h2>
+        <div 
+          className="card-container
+          flex flex-wrap lg:justify-start justify-center gap-10
+        ">
+          <Card/>
+        </div>
+      </div>
+
+      {/* Cart */}
+      <div>
+        <Cart/>
+      </div>
+
+    </body>
   );
 }
 
