@@ -1,20 +1,24 @@
-import logo from './logo.svg';
 import './styles/App.scss';
 
+// components
+import { Card } from './components/Card';
+
 function App() {
+  // grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link bg-white text-blue-800"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello World!
-        </a>
-      </header>
+    <div 
+      className="card-container
+      flex flex-wrap justify-center gap-10
+      border-4 border-blue-400
+      h-full lg:w-3/4
+      m-6 md:m-10
+    "> 
+
+      <Card
+      
+      />
+
     </div>
   );
 }
