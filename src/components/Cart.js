@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { List } from './List';
 
 export const Cart = () => {
 
@@ -14,8 +15,12 @@ export const Cart = () => {
             '>
                 <h2 className='heading-text'>Cart</h2>
 
-                <div>
-                    {/* TODO:  added menu */}
+                <div className='
+                    border-4 border-red-500
+                    h-full my-3 overflow-scroll
+                    space-y-3
+                '>
+                    <List/>
                 </div>
 
                 <button 
