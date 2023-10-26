@@ -17,9 +17,11 @@ export const List = () => {
                 </div>
 
                 {/* content container */}
-                <div>
-                    <h4>{added}. American Classic</h4>
-                    <span>Some toppings</span>
+                <div className='flex lg:flex-col flex-row justify-between'>
+                    <div>
+                        <h4>{added}. American Classic</h4>
+                        <span>Some toppings</span>
+                    </div>
                     <p>$99</p>
                 </div>
             </div>

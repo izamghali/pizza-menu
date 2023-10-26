@@ -8,10 +8,15 @@ export const Cart = () => {
     return (
         <>
             <div className='
-                border-4 border-red-700
-                lg:w-96 h-screen
+                bg-white ( NOTE:  background temporarily white)
+                border-4 border-yellow-400
+                lg:w-96 lg:h-screen
                 py-6 px-6
                 flex flex-col justify-between
+                
+                // mobile
+                w-full h-2/6 sm:h-2/5
+                lg:static absolute bottom-0 left-0
             '>
                 <h2 className='heading-text'>Cart</h2>
 

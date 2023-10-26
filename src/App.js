@@ -17,7 +17,7 @@ function App() {
       <div className='
         border-4 border-violet-800
         h-screen w-full 
-        py-6 pl-6
+        py-6 lg:pl-6 px-6
         overflow-scroll
       '>
         <h2 className='heading-text mb-3 lg:text-left text-center'>Pizza List</h2>
