@@ -8,31 +8,30 @@ export const Cart = () => {
     return (
         <>
             <div className='
-                bg-white ( NOTE:  background temporarily white)
-                border-4 border-yellow-400
+                bg-brown ( NOTE:  background temporarily white)
                 lg:w-96 lg:h-screen
                 py-6 px-6
                 flex flex-col justify-between
                 
                 // mobile
                 w-full h-2/6 sm:h-2/5
-                lg:static absolute bottom-0 left-0
-            '>
+                lg:static fixed bottom-0 left-0
+            ' id='cart'>
                 <h2 className='heading-text'>Cart</h2>
 
                 <div className='
-                    border-4 border-red-500
+                    
                     h-full my-3 overflow-scroll
                     space-y-3
-                '>
+                ' id='list-container'>
                     <List/>
                 </div>
 
                 <button 
                     className='btn
-                        border-2 border-redBurn bg-redBurn px-4
+                        px-4 bg-lightGreen 
                         flex justify-between items-center space-x-10
-                      hover:bg-white duration-200
+                        duration-200 hover:animate-horizontal-shake 
                     '
                     onMouseEnter={() => {setMouseHover(true)}}
                     onMouseLeave={() => {setMouseHover(false)}}
