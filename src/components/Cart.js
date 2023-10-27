@@ -28,14 +28,14 @@ export const Cart = () => {
                 </div>
 
                 <button 
-                    className='btn
+                    className='btn 
                         px-4 bg-lightGreen 
                         flex justify-between items-center space-x-10
-                        duration-200 hover:animate-horizontal-shake 
+                        duration-300
                     '
                     onMouseEnter={() => {setMouseHover(true)}}
                     onMouseLeave={() => {setMouseHover(false)}}
-                >
+                id="total-btn">
                     <span className=''>{mouseHover ? 'PURCHASE' : 'TOTAL'}</span>
                     <span className='text-lg font-light'>Price</span>
                 </button>

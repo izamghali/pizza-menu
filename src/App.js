@@ -3,13 +3,14 @@ import './styles/App.scss';
 // components
 import { Card } from './components/Card';
 import { Cart } from './components/Cart';
+import { TopingContainer } from './components/TopingContainer';
 
 function App() {
 
   return (
     <body className='
       flex flex-col lg:flex-row justify-between
-    '>
+    ' id='App'>
 
       {/* Menu Section */}
       <div className='
@@ -28,10 +29,17 @@ function App() {
       </div>
 
       {/* Cart */}
-      <div className='
-        
-      '>
+      {/* TODO:  figure out how to make cart not fixed when scrolled to the bottom so the menu list can be seen */}
+      <div className=''>
         <Cart/>
+      </div>
+
+      <div className=''>
+        <TopingContainer/>
+      </div>
+
+      <div className='bg-layer'>
+
       </div>
 
     </body>
