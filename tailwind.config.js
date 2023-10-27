@@ -8,11 +8,20 @@ module.exports = {
     extend: {
       colors: {
         lightGreen: '#4DF09C', // base color
-        green: '#64B089',
+        greeny: '#64B089',
         darkGreen: '#5C7066',
         brown: '#9B6B65',
         redBurn: '#F05E4D'
-      }
+      },
+      animation: {
+        'horizontal-shake': 'horizontal-shake 1s ease-in-out infinite'
+      },
+      keyframes: {
+        'horizontal-shake': {
+          '0%, 100%': {transform: 'translateX(1%)'},
+          '50%': {transform: 'translateX(-1%)'}
+        }
+      },
     },
   },
   plugins: [],
