@@ -6,8 +6,6 @@ import { Cart } from './components/Cart';
 
 function App() {
 
-
-
   return (
     <body className='
       flex flex-col lg:flex-row justify-between
@@ -15,7 +13,7 @@ function App() {
 
       {/* Menu Section */}
       <div className='
-        border-4 border-violet-800
+        
         h-screen w-full 
         py-6 lg:pl-6 px-6
         overflow-scroll
@@ -30,7 +28,9 @@ function App() {
       </div>
 
       {/* Cart */}
-      <div>
+      <div className='
+        
+      '>
         <Cart/>
       </div>
 

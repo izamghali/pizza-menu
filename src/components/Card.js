@@ -39,9 +39,25 @@ export const Card = () => {
         <>
             {cards.map(card => {
                 return <div className='
-                    max-w-xs p-4 
-                    border-2 border-black overflow-y-hidden
-                    space-y-4 rounded-md
+                    relative
+                '>
+                    <div className='
+                    max-w-xs p-4 space-y-4 rounded-md 
+                    border-2 border-black bg-black
+                    '>
+                        <div className='
+                            h-64 
+                        '>
+                            <img className='object-fit' src={card.img}/>
+                        </div>
+                        <h3 className='text-2xl font-semibold '>{card.title}</h3>
+                        <p className=''>${card.price}</p>
+                        <button className='btn border-2'>ORDER</button>
+                    </div>
+                    <div className='
+                        bg-white border-2 border-black rounded-md
+                        absolute top-0 left-0 hover:-translate-y-2 hover:-translate-x-2 duration-300
+                        p-4 space-y-4
                     '>
                         <div className='
                             h-64 overflow-hidden
@@ -52,11 +68,13 @@ export const Card = () => {
                         <h3 className='text-2xl font-semibold text-left'>{card.title}</h3>
                         <p className='text-left'>${card.price}</p>
                         <button className='btn
-                            border-2 border-lightGreen bg-lightGreen
-                            duration-200 hover:bg-white
+                            border-2 border-lightGreen bg-white
+                            duration-200 hover:bg-lightGreen
                             text-black
                         '>ORDER</button>
                     </div>
+
+                </div>
             })}
         </>
     )
