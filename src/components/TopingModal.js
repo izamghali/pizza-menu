@@ -6,6 +6,12 @@ export const TopingModal = () => {
         document.getElementById('toping').style.display = 'none';
     }
 
+    const topings = [
+        `Avocado ( $${1} )`, `Broccoli ( $${1} )`, `Onions ( $${1} )`, `Zucchini ( $${1} )`, 
+        `Lobster ( $${2} )`, `Oyster ( $${2} )`, `Salmon ( $${2} )`, `Tuna ( $${2} )`,
+        `Bacon ( $${3} )`, `Duck ( $${3} )`, `Ham ( $${3} )`, `Sausage ( $${3} )`
+    ]
+
     return(
         // TODO: bg-layer
         <div 
@@ -17,11 +23,10 @@ export const TopingModal = () => {
             {/* NOTE:  toping container*/}
             <div 
                 className='
-                    w-96 bg-slate-50 
+                    w-[30rem] bg-slate-50 
                     p-4 
                     flex flex-col justify-between gap-8
-                '
-            >
+                '>
                 {/* content container */}
                 <div>
                     <div className='flex justify-between'>
@@ -33,34 +38,18 @@ export const TopingModal = () => {
                         </span>
                     </div>
 
-                    {/* mock data */}
-                    <form className=''>
+                    <form className='grid grid-cols-2 space-y-1'>
                         {/* chechbox 1 */}
-                        <div className='flex space-x-2 items-center'>
-                            <input
-                                className='w-4 h-4 border-[1.5px] border-neutral-600 rounded-sm checked:bg-greeny appearance-none'
-                                type='checkbox'
-                            />
-                            <label className='text-neutral-600'>Placeholder toping</label>
-                        </div>
-                        {/* chechbox 1 */}
-                        <div className='flex space-x-2 items-center'>
-                            <input
-                                className='w-4 h-4 border-[1.5px] border-neutral-600 rounded-sm checked:bg-greeny appearance-none'
-                                type='checkbox'
-                            />
-                            <label className='text-neutral-600'>Placeholder toping</label>
-                        </div>
-                        {/* chechbox 1 */}
-                        <div className='flex space-x-2 items-center'>
-                            <input
-                                className='w-4 h-4 border-[1.5px] border-neutral-600 rounded-sm checked:bg-greeny appearance-none'
-                                type='checkbox'
-                            />
-                            <label className='text-neutral-600'>Placeholder toping</label>
-                        </div>
+                        {topings.map(toping => {
+                            return <div className='flex space-x-2 items-center'>
+                                <input
+                                    className='w-4 h-4 border-[1.5px] border-neutral-600 rounded-sm checked:bg-greeny appearance-none'
+                                    type='checkbox'
+                                />
+                                <label className='text-neutral-600'>{toping}</label>
+                            </div>
+                        })}
                     </form>
-                    
                 </div>
 
                 <button className='
@@ -71,7 +60,6 @@ export const TopingModal = () => {
                 </button>
 
             </div>
-            
         </div>
     )
 }
