@@ -3,7 +3,7 @@ import './styles/App.scss';
 // components
 import { Card } from './components/Card';
 import { Cart } from './components/Cart';
-import { TopingContainer } from './components/TopingContainer';
+import { TopingModal } from './components/TopingModal';
 
 function App() {
 
@@ -35,7 +35,7 @@ function App() {
       </div>
 
       <div className=''>
-        <TopingContainer/>
+        <TopingModal/>
       </div>
 
     </body>

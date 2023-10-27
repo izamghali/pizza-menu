@@ -1,18 +1,18 @@
 import React from 'react';
 
-export const TopingContainer = () => {
+export const TopingModal = () => {
 
     const exitTopings = () => {
-        alert('you clicked the bg')
+        document.getElementById('toping').style.display = 'none';
     }
 
     return(
         // TODO: bg-layer
         <div 
             className='
-                absolute top-0 bg-black/[0.7] z-0 w-full h-full
-                flex items-center justify-center
-            '>
+                absolute top-0 left-0 bg-black/[0.7] z-0 w-full h-full
+                items-center justify-center hidden
+            ' id='toping'>
 
             {/* NOTE:  toping container*/}
             <div 
@@ -43,11 +43,30 @@ export const TopingContainer = () => {
                             />
                             <label className='text-neutral-600'>Placeholder toping</label>
                         </div>
+                        {/* chechbox 1 */}
+                        <div className='flex space-x-2 items-center'>
+                            <input
+                                className='w-4 h-4 border-[1.5px] border-neutral-600 rounded-sm checked:bg-greeny appearance-none'
+                                type='checkbox'
+                            />
+                            <label className='text-neutral-600'>Placeholder toping</label>
+                        </div>
+                        {/* chechbox 1 */}
+                        <div className='flex space-x-2 items-center'>
+                            <input
+                                className='w-4 h-4 border-[1.5px] border-neutral-600 rounded-sm checked:bg-greeny appearance-none'
+                                type='checkbox'
+                            />
+                            <label className='text-neutral-600'>Placeholder toping</label>
+                        </div>
                     </form>
                     
                 </div>
 
-                <button className='rounded-xl py-4 text-xl font-bold bg-redBurn'>
+                <button className='
+                    rounded-xl py-4 text-xl font-bold bg-redBurn 
+                    hover:-translate-y-1 duration-300
+                '>
                     Add to Cart
                 </button>
 

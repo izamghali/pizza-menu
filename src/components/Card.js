@@ -36,7 +36,7 @@ export const Card = () => {
     ]
 
     const handleOrder = () => {
-        alert('you clicked order')
+        document.getElementById('toping').style.display = 'flex';
     }
 
     return (
