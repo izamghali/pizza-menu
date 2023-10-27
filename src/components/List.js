@@ -2,13 +2,13 @@ import React from 'react';
 
 export const List = () => {
 
-    const testArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const testArr = [1, 2, 3, 4, 5]
 
     return(
         <>
             {testArr.map(added => {
                 return <div className='
-                border-2 border-black
+                 bg-white
                 p-4 rounded-md
             '>
                 {/* img container */}
