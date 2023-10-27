@@ -38,10 +38,6 @@ function App() {
         <TopingContainer/>
       </div>
 
-      <div className='bg-layer'>
-
-      </div>
-
     </body>
   );
 }
