@@ -5,12 +5,15 @@ export const Card = (props) => {
 
     const {
         addedCart, setAddedCart, 
+        setAddtoCartBtnClicked,
+        setMenuToAdd,
 
         title, price, img
 
     } = props;
 
     function handleOrder() {
+
         document.getElementById('toping').style.display = 'flex';
 
         const menuToAdd = {
@@ -19,8 +22,8 @@ export const Card = (props) => {
             id: generateID(),
         } 
 
-        setAddedCart(prevMenu => [menuToAdd, ...prevMenu])
-        console.log(addedCart)
+        setMenuToAdd(menuToAdd);
+        
         
         // if (addedCart.length > 0 && addedCartID.includes(menuToAdd.menuID)) {
             // return; // menu is already in the cart

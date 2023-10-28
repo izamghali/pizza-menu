@@ -9,6 +9,7 @@ import { TopingModal } from './components/TopingModal';
 function App() {
 
   const [ addedCart, setAddedCart ] = useState([])
+  const [ menuToAdd, setMenuToAdd ] = useState();
   const [ addToCartBtnClicked, setAddtoCartBtnClicked ] = useState(false);
 
   const menus = [
@@ -36,7 +37,6 @@ function App() {
 
       {/* Menu Section */}
       <div className='
-        
         h-screen w-full 
         py-6 lg:pl-6 px-6
         overflow-scroll
@@ -46,13 +46,16 @@ function App() {
           className="card-container
           flex flex-wrap lg:justify-start justify-center gap-10
         ">
-          {menus.map(card => {
+          {menus.map(menu => {
             return <Card 
               addedCart={addedCart} setAddedCart={setAddedCart}
+              setMenuToAdd={setMenuToAdd}
+              setAddtoCartBtnClicked={setAddtoCartBtnClicked}
 
-              title={card.title}
-              price={card.price}
-              img={card.img}
+              title={menu.title}
+              price={menu.price}
+              img={menu.img}
+              topings={menu.topings}
             />
           })}
         </div>
@@ -74,6 +77,8 @@ function App() {
           />
         })} */}
         <TopingModal 
+          addedCart={addedCart} setAddedCart={setAddedCart}
+          menuToAdd={menuToAdd}
           setAddtoCartBtnClicked={setAddtoCartBtnClicked}
         />
       </div>

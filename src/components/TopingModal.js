@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 
 export const TopingModal = (props) => {
 
-    const { setAddtoCartBtnClicked } = props;
+    const { 
+        addedCart, setAddedCart,
+        menuToAdd,
+        setAddtoCartBtnClicked
+    } = props;
 
     const [ topingChecked, setTopingChecked ] = useState(false);
 
@@ -18,16 +22,20 @@ export const TopingModal = (props) => {
 
     // TODO:  add selected toping to cart
     function handleCheckedToping(event) {
-        
         setTopingChecked(!topingChecked)
-       
     }
 
     function handleAddToCartToping(event) {
         document.getElementById('list-container').classList.add('flex-col')
         document.getElementById('list-container').classList.remove('items-center')
 
+        // NOTE:  mock data
+        menuToAdd.topings = ['cheese', 'blueberry']
+
         setAddtoCartBtnClicked(true);
+        document.getElementById('toping').style.display = 'none';
+
+        setAddedCart(prevMenu => [menuToAdd, ...prevMenu])
     }
 
     return(
@@ -63,7 +71,7 @@ export const TopingModal = (props) => {
                                     value={topingChecked}
                                     onChange={handleCheckedToping}
                                 />
-                                <label className='text-neutral-600'>{toping.name} ${toping.price}</label>
+                                <label className='text-neutral-600'>{toping.name} ( ${toping.price} )</label>
                             </div>
                         })}
                     </form>
