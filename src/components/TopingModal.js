@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const TopingModal = () => {
 
@@ -13,14 +13,12 @@ export const TopingModal = () => {
     ]
 
     return(
-        // TODO: bg-layer
         <div 
             className='
                 absolute top-0 left-0 bg-black/[0.7] z-0 w-full h-full
                 items-center justify-center hidden
             ' id='toping'>
 
-            {/* NOTE:  toping container*/}
             <div 
                 className='
                     w-[30rem] bg-slate-50 
