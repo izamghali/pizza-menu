@@ -4,11 +4,15 @@ export const TopingModal = (props) => {
 
     const { 
         addedCart, setAddedCart,
-        menuToAdd,
+        menuToAdd, 
+        avocado, setAvocado,
+        broccoli, setBroccoli,
+        onions, setOnions,
         setAddtoCartBtnClicked
     } = props;
 
     const [ topingChecked, setTopingChecked ] = useState(false);
+    const [ selectedTopings, setSelectedTopings ] = useState([])
 
     const topings = [
         { name: 'Avocado', price: 1 }, { name: 'Broccoli', price: 1 }, { name: 'Onions', price: 1 },
@@ -22,7 +26,34 @@ export const TopingModal = (props) => {
 
     // TODO:  add selected toping to cart
     function handleCheckedToping(event) {
-        setTopingChecked(!topingChecked)
+        
+        // setTopingChecked(!topingChecked)
+
+        // check value
+        switch (event.target.value) {
+            case 'Avocado':
+                setAvocado(!avocado)
+                // add price
+                setSelectedTopings(prevTopings => [...prevTopings, `Avocado`]);
+                break;
+            case 'Broccoli':
+                setBroccoli(!broccoli)
+                setSelectedTopings(prevTopings => [...prevTopings, `Broccoli`]);
+                break;
+            case 'Onions':
+                setOnions(!onions)
+                setSelectedTopings(prevTopings => [...prevTopings, `Onions`]);
+                break;
+            default:
+                console.log('not a toping')
+                break;
+        }
+
+        if (avocado || broccoli || onions) {
+            console.log(`avocado status: ${avocado}`)
+            console.log(`broccoli status: ${broccoli}`)
+            console.log(`onions status: ${onions}`)
+        }
     }
 
     function handleAddToCartToping(event) {
@@ -30,12 +61,14 @@ export const TopingModal = (props) => {
         document.getElementById('list-container').classList.remove('items-center')
 
         // NOTE:  mock data
-        menuToAdd.topings = ['cheese', 'blueberry']
+        menuToAdd.topings = selectedTopings;
 
         setAddtoCartBtnClicked(true);
         document.getElementById('toping').style.display = 'none';
 
-        setAddedCart(prevMenu => [menuToAdd, ...prevMenu])
+        setAddedCart(prevMenu => [
+            menuToAdd, ...prevMenu
+        ])
     }
 
     return(
@@ -68,7 +101,7 @@ export const TopingModal = (props) => {
                                 <input
                                     className='w-4 h-4 border-[1.5px] border-neutral-600 rounded-sm checked:bg-greeny appearance-none'
                                     type='checkbox' 
-                                    value={topingChecked}
+                                    value={toping.name}
                                     onChange={handleCheckedToping}
                                 />
                                 <label className='text-neutral-600'>{toping.name} ( ${toping.price} )</label>
