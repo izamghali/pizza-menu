@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import { List } from './List';
 
-export const Cart = () => {
+export const Cart = (props) => {
+
+    const {
+        addedCart
+    } = props;
 
     const [ mouseHover, setMouseHover ] = useState(false);
 
@@ -24,7 +28,14 @@ export const Cart = () => {
                     h-full my-3 overflow-scroll
                     space-y-3
                 ' id='list-container'>
-                    <List/>
+                    {/* {addedCart.map(menu => {
+                        return <List
+                            title={menu.title}
+                        />
+                    })} */}
+                    <List 
+                        addedCart={addedCart}
+                    />
                 </div>
 
                 <button 
