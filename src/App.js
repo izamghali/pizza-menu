@@ -9,6 +9,7 @@ import { TopingModal } from './components/TopingModal';
 function App() {
 
   const [ addedCart, setAddedCart ] = useState([])
+  const [ addToCartBtnClicked, setAddtoCartBtnClicked ] = useState(false);
 
   const menus = [
     {
@@ -61,7 +62,7 @@ function App() {
       {/* TODO:  figure out how to make cart not fixed when scrolled to the bottom so the menu list can be seen */}
       <div className=''>
         <Cart
-          addedCart={addedCart}
+          addedCart={addedCart} addToCartBtnClicked={addToCartBtnClicked}
         />
       </div>
 
@@ -72,7 +73,9 @@ function App() {
             topingPrice={toping.price}
           />
         })} */}
-        <TopingModal />
+        <TopingModal 
+          setAddtoCartBtnClicked={setAddtoCartBtnClicked}
+        />
       </div>
 
     </body>

@@ -4,7 +4,7 @@ import { List } from './List';
 export const Cart = (props) => {
 
     const {
-        addedCart
+        addedCart, addToCartBtnClicked
     } = props;
 
     const [ mouseHover, setMouseHover ] = useState(false);
@@ -26,16 +26,16 @@ export const Cart = (props) => {
                 <div className='
                     
                     h-full my-3 overflow-scroll
-                    space-y-3
+                    space-y-3 flex items-center
                 ' id='list-container'>
                     {/* {addedCart.map(menu => {
                         return <List
                             title={menu.title}
                         />
                     })} */}
-                    <List 
-                        addedCart={addedCart}
-                    />
+                    { addedCart.length > 0 && addToCartBtnClicked ? 
+                    <List addedCart={addedCart} /> 
+                    : <h1 className='font-normal text-xl text-white'>The shopping cart is still empty, click item to add to cart</h1> }
                 </div>
 
                 <button 

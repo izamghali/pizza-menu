@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-export const TopingModal = () => {
+export const TopingModal = (props) => {
+
+    const { setAddtoCartBtnClicked } = props;
 
     const [ topingChecked, setTopingChecked ] = useState(false);
 
@@ -19,6 +21,13 @@ export const TopingModal = () => {
         
         setTopingChecked(!topingChecked)
        
+    }
+
+    function handleAddToCartToping(event) {
+        document.getElementById('list-container').classList.add('flex-col')
+        document.getElementById('list-container').classList.remove('items-center')
+
+        setAddtoCartBtnClicked(true);
     }
 
     return(
@@ -63,7 +72,10 @@ export const TopingModal = () => {
                 <button className='
                     rounded-xl py-4 text-xl font-bold bg-redBurn 
                     hover:-translate-y-1 duration-300
-                '>
+                '
+                    onClick={handleAddToCartToping}
+                    id='add-to-cart-btn'
+                >
                     Add to Cart
                 </button>
             </div>

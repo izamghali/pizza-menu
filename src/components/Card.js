@@ -20,6 +20,7 @@ export const Card = (props) => {
         } 
 
         setAddedCart(prevMenu => [menuToAdd, ...prevMenu])
+        console.log(addedCart)
         
         // if (addedCart.length > 0 && addedCartID.includes(menuToAdd.menuID)) {
             // return; // menu is already in the cart
