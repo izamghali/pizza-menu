@@ -11,6 +11,12 @@ function App() {
   const [ addedCart, setAddedCart ] = useState([])
   const [ menuToAdd, setMenuToAdd ] = useState();
   const [ addToCartBtnClicked, setAddtoCartBtnClicked ] = useState(false);
+  const [ pricePerMenu, setPricePerMenu ] = useState(0)
+
+  // toping states
+  const [ avocado, setAvocado ] = useState(false);
+  const [ broccoli, setBroccoli ] = useState(false);
+  const [ onions, setOnions ] = useState(false);
 
   const menus = [
     {
@@ -66,6 +72,7 @@ function App() {
       <div className=''>
         <Cart
           addedCart={addedCart} addToCartBtnClicked={addToCartBtnClicked}
+          pricePerMenu={pricePerMenu}
         />
       </div>
 
@@ -78,7 +85,11 @@ function App() {
         })} */}
         <TopingModal 
           addedCart={addedCart} setAddedCart={setAddedCart}
-          menuToAdd={menuToAdd}
+          menuToAdd={menuToAdd} setPricePerMenu={setPricePerMenu}
+          avocado={avocado} setAvocado={setAvocado}
+          broccoli={broccoli} setBroccoli={setBroccoli}
+          onions={onions} setOnions={setOnions}
+
           setAddtoCartBtnClicked={setAddtoCartBtnClicked}
         />
       </div>
