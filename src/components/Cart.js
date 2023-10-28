@@ -13,7 +13,7 @@ export const Cart = (props) => {
         <>
             <div className='
                 bg-amber-950 ( NOTE:  background temporarily white)
-                lg:w-96 lg:h-screen
+                lg:w-96 2xl:w-[35rem] lg:h-screen
                 py-6 px-6
                 flex flex-col justify-between
                 

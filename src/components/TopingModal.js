@@ -2,15 +2,24 @@ import React, { useState } from 'react';
 
 export const TopingModal = () => {
 
-    const exitTopings = () => {
+    const [ topingChecked, setTopingChecked ] = useState(false);
+
+    const topings = [
+        { name: 'Avocado', price: 1 }, { name: 'Broccoli', price: 1 }, { name: 'Onions', price: 1 },
+        { name: 'Lobster', price: 2 }, { name: 'Oyster', price: 2 }, { name: 'Salmon', price: 2 },
+        { name: 'Bacon', price: 3 }, { name: 'Ham', price: 3 }, { name: 'Sausage', price: 3 },
+    ]
+
+    function exitTopings() {
         document.getElementById('toping').style.display = 'none';
     }
 
-    const topings = [
-        `Avocado ( $${1} )`, `Broccoli ( $${1} )`, `Onions ( $${1} )`, `Zucchini ( $${1} )`, 
-        `Lobster ( $${2} )`, `Oyster ( $${2} )`, `Salmon ( $${2} )`, `Tuna ( $${2} )`,
-        `Bacon ( $${3} )`, `Duck ( $${3} )`, `Ham ( $${3} )`, `Sausage ( $${3} )`
-    ]
+    // TODO:  add selected toping to cart
+    function handleCheckedToping(event) {
+        
+        setTopingChecked(!topingChecked)
+       
+    }
 
     return(
         <div 
@@ -36,15 +45,16 @@ export const TopingModal = () => {
                         </span>
                     </div>
 
-                    <form className='grid grid-cols-2 space-y-1'>
-                        {/* chechbox 1 */}
+                    <form className='grid md:grid-cols-3 grid-cols-2 space-y-1'>
                         {topings.map(toping => {
                             return <div className='flex space-x-2 items-center'>
                                 <input
                                     className='w-4 h-4 border-[1.5px] border-neutral-600 rounded-sm checked:bg-greeny appearance-none'
-                                    type='checkbox'
+                                    type='checkbox' 
+                                    value={topingChecked}
+                                    onChange={handleCheckedToping}
                                 />
-                                <label className='text-neutral-600'>{toping}</label>
+                                <label className='text-neutral-600'>{toping.name} ${toping.price}</label>
                             </div>
                         })}
                     </form>
@@ -56,7 +66,6 @@ export const TopingModal = () => {
                 '>
                     Add to Cart
                 </button>
-
             </div>
         </div>
     )

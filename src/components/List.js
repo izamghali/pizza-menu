@@ -26,10 +26,10 @@ export const List = (props) => {
                 {/* content container */}
                 <div className='flex lg:flex-col flex-row justify-between'>
                     <div>
-                        <h4 className='font-semibold text-lg'>{menu}</h4>
+                        <h4 className='font-semibold text-lg'>{menu.title}</h4>
                         <span>Some toppings</span>
                     </div>
-                    <p>$99</p>
+                    <p>${menu.price}</p>
                 </div>
             </div>
         })}

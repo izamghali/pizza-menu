@@ -10,22 +10,22 @@ function App() {
 
   const [ addedCart, setAddedCart ] = useState([])
 
-  const cards = [
+  const menus = [
     {
        title: 'AMERICAN CLASSIC CHEESEBURGER',
        price: 8,
        img: 'https://plus.unsplash.com/premium_photo-1675451537771-0dd5b06b3985?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-   },
-   {
+    },
+    {
        title: 'GRILLED BEEF SUPREME',
        price: 12,
        img: 'https://images.unsplash.com/photo-1601924582970-9238bcb495d9?auto=format&fit=crop&q=80&w=1976&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-   },
-   {
+    },
+    {
        title: 'CHEESY MEATBALL BLAST',
        price: 15,
        img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=1981&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-   },
+    },
   ]
 
   return (
@@ -45,7 +45,7 @@ function App() {
           className="card-container
           flex flex-wrap lg:justify-start justify-center gap-10
         ">
-          {cards.map(card => {
+          {menus.map(card => {
             return <Card 
               addedCart={addedCart} setAddedCart={setAddedCart}
 
@@ -66,7 +66,13 @@ function App() {
       </div>
 
       <div className=''>
-        <TopingModal/>
+        {/* {topings.map(toping => {
+          return <TopingModal 
+            topingName={toping.name}
+            topingPrice={toping.price}
+          />
+        })} */}
+        <TopingModal />
       </div>
 
     </body>

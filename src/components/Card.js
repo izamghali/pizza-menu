@@ -1,23 +1,25 @@
 import React from 'react';
+import { generateID } from '../helpers';
 
 export const Card = (props) => {
 
     const {
-        addedCart, setAddedCart,
+        addedCart, setAddedCart, 
 
         title, price, img
 
     } = props;
 
-    const handleOrder = () => {
+    function handleOrder() {
         document.getElementById('toping').style.display = 'flex';
 
-        // TODO:  add menu to cart without toping
         const menuToAdd = {
             title: title,
+            price: price,
+            id: generateID(),
         } 
 
-        setAddedCart(prevMenu => [menuToAdd.title, ...prevMenu])
+        setAddedCart(prevMenu => [menuToAdd, ...prevMenu])
         
         // if (addedCart.length > 0 && addedCartID.includes(menuToAdd.menuID)) {
             // return; // menu is already in the cart
