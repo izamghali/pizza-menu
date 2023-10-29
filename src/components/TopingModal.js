@@ -69,7 +69,7 @@ export const TopingModal = (props) => {
     return(
         <div 
             className='
-                absolute top-0 left-0 bg-black/[0.7] z-0 w-full h-full
+                fixed top-0 left-0 bg-black/[0.7] w-full h-full
                 items-center justify-center hidden
             ' id='toping'>
 
