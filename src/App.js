@@ -14,11 +14,6 @@ function App() {
   const [ pricePerMenu, setPricePerMenu ] = useState(0)
   const [ selectedTopings, setSelectedTopings ] = useState([])
 
-  // toping states
-  const [ avocado, setAvocado ] = useState(false);
-  const [ broccoli, setBroccoli ] = useState(false);
-  const [ onions, setOnions ] = useState(false);
-
   const menus = [
     {
        title: 'AMERICAN CLASSIC CHEESEBURGER',
@@ -87,9 +82,6 @@ function App() {
         <TopingModal 
           addedCart={addedCart} setAddedCart={setAddedCart}
           menuToAdd={menuToAdd} setPricePerMenu={setPricePerMenu}
-          avocado={avocado} setAvocado={setAvocado}
-          broccoli={broccoli} setBroccoli={setBroccoli}
-          onions={onions} setOnions={setOnions}
 
           setAddtoCartBtnClicked={setAddtoCartBtnClicked}
           selectedTopings={selectedTopings} setSelectedTopings={setSelectedTopings}

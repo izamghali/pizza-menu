@@ -5,9 +5,6 @@ export const TopingModal = (props) => {
     const { 
         addedCart, setAddedCart,
         menuToAdd, 
-        avocado, setAvocado,
-        broccoli, setBroccoli,
-        onions, setOnions,
         setAddtoCartBtnClicked,
         selectedTopings, setSelectedTopings
     } = props;
@@ -23,7 +20,6 @@ export const TopingModal = (props) => {
         document.getElementById('toping').style.display = 'none';
     }
 
-    // TODO:  add selected toping to cart
     function handleCheckedToping(event) {
 
         // check value
@@ -76,12 +72,21 @@ export const TopingModal = (props) => {
         }
     }
 
+    let topingPrice = 0;
     function handleAddToCartToping(event) {
         document.getElementById('list-container').classList.add('flex-col')
         document.getElementById('list-container').classList.remove('items-center')
 
-        // NOTE:  mock data
+        topings.forEach(toping => {
+            selectedTopings.forEach(selected => {
+                if (toping.name === selected) {
+                    topingPrice += toping.price;
+                }
+            })
+        })
+
         menuToAdd.topings = selectedTopings;
+        menuToAdd.topingPrice = topingPrice;
 
         setAddtoCartBtnClicked(true);
         document.getElementById('toping').style.display = 'none';

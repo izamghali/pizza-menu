@@ -29,7 +29,7 @@ export const List = (props) => {
                         <h4 className='font-semibold text-lg'>{menu.title}</h4>
                         {menu.topings.map(toping => {return <span>{ toping }{menu.topings.length > 1 && menu.topings[menu.topings.length - 1] !== toping ? ', ' : ''}</span>})}
                     </div>
-                    <p>${menu.price}</p>
+                    <p>${menu.price + menu.topingPrice}</p>
                 </div>
             </div>
         })}
