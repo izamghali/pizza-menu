@@ -11,9 +11,9 @@ export const TopingModal = (props) => {
 
 
     const topings = [
-        { name: 'Avocado', price: 1 }, { name: 'Broccoli', price: 1 }, { name: 'Onions', price: 1 },
-        { name: 'Lobster', price: 2 }, { name: 'Oyster', price: 2 }, { name: 'Salmon', price: 2 },
-        { name: 'Bacon', price: 3 }, { name: 'Ham', price: 3 }, { name: 'Sausage', price: 3 },
+        { name: 'Avocado', price: 1 }, { name: 'Broccoli', price: 1 }, { name: 'Onions', price: 1 }, { name: 'Zucchini', price: 1 },
+        { name: 'Lobster', price: 2 }, { name: 'Oyster', price: 2 }, { name: 'Salmon', price: 2 }, { name: 'Tuna', price: 2 },
+        { name: 'Bacon', price: 3 }, { name: 'Duck', price: 3 }, { name: 'Ham', price: 3 }, { name: 'Sausage', price: 3 }, 
     ]
 
     function exitTopings() {
@@ -21,29 +21,6 @@ export const TopingModal = (props) => {
     }
 
     function handleCheckedToping(event) {
-
-        // check value
-        // switch (event.target.value) {
-        //     case 'Avocado':
-        //         setAvocado(!avocado)
-        //         // add price
-        //         // if (avocado) { setSelectedTopings(prevTopings => [...prevTopings, `Avocado`]); }
-        //         setSelectedTopings(prevTopings => [...prevTopings, `Avocado`]);
-        //         console.log(event)
-        //         break;
-        //     case 'Broccoli':
-        //         setBroccoli(!broccoli)
-        //         if (broccoli) { setSelectedTopings(prevTopings => [...prevTopings, `Broccoli`]); }
-        //         break;
-        //     case 'Onions':
-        //         setOnions(!onions)
-        //         if (onions) { setSelectedTopings(prevTopings => [...prevTopings, `Onions`]); }
-        //         break;
-        //     default:
-        //         console.log('not a toping')
-        //         break;
-        // }
-
         if (event.target.checked) {
             if (selectedTopings.length > 0 && selectedTopings.includes(event.target.value)) {
                 return
@@ -57,18 +34,6 @@ export const TopingModal = (props) => {
                     return topingToRemove;
                 }
             })
-
-            // setSelectedTopings()
-            // let found = selectedTopings.find(toping => { return toping === event.target.value });
-            // let found = selectedTopings.indexOf(event.target.value);
-            // let found = selectedTopings.findIndex(toping => { return toping === event.target.value });
-            // if (selectedTopings.length === 1) {
-            //     // selectedTopings.pop();
-            //     selectedTopings = []
-            // } else {
-            //     selectedTopings.splice(found, 1);
-            //     // selectedTopings.filter(toping => { return toping !== event.target.value });
-            // }
         }
     }
 
@@ -110,12 +75,12 @@ export const TopingModal = (props) => {
 
             <div 
                 className='
-                    w-[30rem] bg-slate-50 
-                    p-4 
-                    flex flex-col justify-between gap-8
-                '>
+                    w-[30rem] bg-slate-50 p-4 
+                    flex flex-col justify-between space-y-8
+                '
+            >
                 {/* content container */}
-                <div>
+                <div className='space-y-4'>
                     <div className='flex justify-between'>
                         <h1 className='text-2xl font-semibold'>Topings</h1>
                         <span onClick={exitTopings}>
@@ -124,8 +89,7 @@ export const TopingModal = (props) => {
                             </svg>
                         </span>
                     </div>
-
-                    <form className='grid md:grid-cols-3 grid-cols-2 space-y-1'>
+                    <form className='grid md:grid-cols-3 md:grid-rows-4 grid-cols-2 space-y-1 md:grid-flow-col'>
                         {topings.map(toping => {
                             return <div className='flex space-x-2 items-center'>
                                 <input
@@ -140,15 +104,18 @@ export const TopingModal = (props) => {
                     </form>
                 </div>
 
-                <button className='
-                    rounded-xl py-4 text-xl font-bold bg-redBurn 
-                    hover:-translate-y-1 duration-300
-                '
-                    onClick={handleAddToCartToping}
-                    id='add-to-cart-btn'
-                >
-                    Add to Cart
-                </button>
+                <div className='flex justify-end'>
+                    <button className='
+                        rounded-xl py-4 px-8 text-xl font-bold bg-redBurn 
+                        hover:-translate-y-1 duration-300 
+                        w-fit
+                    '
+                        onClick={handleAddToCartToping}
+                        id='add-to-cart-btn'
+                    >
+                        Add to Cart
+                    </button>
+                </div>
             </div>
         </div>
     )
