@@ -27,9 +27,14 @@ export const List = (props) => {
                 <div className='flex lg:flex-col flex-row justify-between'>
                     <div>
                         <h4 className='font-semibold text-lg'>{menu.title}</h4>
-                        {menu.topings.map(toping => {return <span>{ toping }{menu.topings.length > 1 && menu.topings[menu.topings.length - 1] !== toping ? ', ' : ''}</span>})}
+                        {menu.topings.map(toping => {
+                            return <span className='text-slate-600'>
+                                { toping }
+                                {menu.topings.length > 1 && menu.topings[menu.topings.length - 1] !== toping ? ', ' : ''}
+                            </span>})
+                        }
                     </div>
-                    <p>${menu.price + menu.topingPrice}</p>
+                    <p className='font-semibold text-lg'>${menu.price + menu.topingPrice}</p>
                 </div>
             </div>
         })}

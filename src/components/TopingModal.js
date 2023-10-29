@@ -85,7 +85,12 @@ export const TopingModal = (props) => {
             })
         })
 
-        menuToAdd.topings = selectedTopings;
+        if (selectedTopings.length === 0) {
+            menuToAdd.topings = ['No Topings'];
+        } else {
+            menuToAdd.topings = selectedTopings;
+        }
+
         menuToAdd.topingPrice = topingPrice;
 
         setAddtoCartBtnClicked(true);
