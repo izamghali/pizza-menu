@@ -16,6 +16,7 @@ export const Cart = ({ addedCart, addToCartBtnClicked }) => {
         alert('Congratulations! Your order has been stored in localStorage!')
     }
 
+    // lg:static fixed bottom-0 left-0
     return (
         <>
             <div className='
@@ -25,16 +26,20 @@ export const Cart = ({ addedCart, addToCartBtnClicked }) => {
                 flex flex-col justify-between
                 
                 // mobile
-                w-full h-2/4 sm:h-3/5
-                lg:static fixed bottom-0 left-0
-            ' id='cart'>
+                w-full max-h-2/4 sm:max-h-3/5
+                lg:static fixed bottom-0
+                
+            ' id='cart'
+            >
                 <h2 className='heading-text text-white'>Cart</h2>
 
                 <div className='
-                    
-                    h-full my-3 overflow-scroll
+                    lg:h-full h-[10rem]
+                    my-3 overflow-scroll
                     space-y-3 flex items-center
-                ' id='list-container'>
+                ' id='list-container' 
+                    
+                >
                     { addedCart.length > 0 && addToCartBtnClicked ? 
                     <List addedCart={addedCart} /> 
                     : <h1 className='font-normal text-xl text-white'>The shopping cart is still empty, click item to add to cart</h1> }

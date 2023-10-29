@@ -6,6 +6,22 @@ import { Card } from './components/Card';
 import { Cart } from './components/Cart';
 import { TopingModal } from './components/TopingModal';
 
+function cartDisappearAuto(){
+  if (window.matchMedia("(max-width: 1023px)").matches) {
+    const cardContainer = document.getElementById('card-container')
+    window.addEventListener('scrollend', () => {
+      const cart = document.getElementById('cart');
+      cart.classList.add('notScrolling')
+      cart.classList.remove('scrolling')
+    })
+    window.addEventListener('scroll', () => {
+      const cart = document.getElementById('cart');
+      cart.classList.add('scrolling')
+      cart.classList.remove('notScrolling')
+    })
+  }
+}
+
 function App() {
 
   const [ addedCart, setAddedCart ] = useState([])
@@ -35,7 +51,9 @@ function App() {
   useEffect(() =>{
     localStorage.clear();
   })
-
+  
+  cartDisappearAuto()
+    
   return (
     <body className='
       flex flex-col lg:flex-row justify-between
@@ -43,15 +61,16 @@ function App() {
 
       {/* Menu Section */}
       <div className='
-        h-screen w-full 
+        lg:h-screen w-full 
         py-6 lg:pl-6 px-6
-        overflow-scroll
-      '>
+        lg:overflow-scroll
+        
+      ' id='card-container'>
         <h2 className='heading-text mb-3 lg:text-left text-center'>Pizza List</h2>
         <div 
           className="card-container
           flex flex-wrap lg:justify-start justify-center gap-10
-        ">
+        " >
           {menus.map(menu => {
             return <Card 
               addedCart={addedCart} setAddedCart={setAddedCart}
