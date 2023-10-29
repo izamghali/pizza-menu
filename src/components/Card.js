@@ -23,13 +23,7 @@ export const Card = (props) => {
         } 
 
         setMenuToAdd(menuToAdd);
-        
-        
-        // if (addedCart.length > 0 && addedCartID.includes(menuToAdd.menuID)) {
-            // return; // menu is already in the cart
-        // } else {
-        //     setAddedCart(prevMenu => [clickedMenu.title, ...prevMenu])
-        // }
+
     }
 
     return (

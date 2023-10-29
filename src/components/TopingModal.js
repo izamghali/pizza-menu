@@ -8,11 +8,10 @@ export const TopingModal = (props) => {
         avocado, setAvocado,
         broccoli, setBroccoli,
         onions, setOnions,
-        setAddtoCartBtnClicked
+        setAddtoCartBtnClicked,
+        selectedTopings, setSelectedTopings
     } = props;
 
-    const [ topingChecked, setTopingChecked ] = useState(false);
-    const [ selectedTopings, setSelectedTopings ] = useState([])
 
     const topings = [
         { name: 'Avocado', price: 1 }, { name: 'Broccoli', price: 1 }, { name: 'Onions', price: 1 },
@@ -26,33 +25,54 @@ export const TopingModal = (props) => {
 
     // TODO:  add selected toping to cart
     function handleCheckedToping(event) {
-        
-        // setTopingChecked(!topingChecked)
 
         // check value
-        switch (event.target.value) {
-            case 'Avocado':
-                setAvocado(!avocado)
-                // add price
-                setSelectedTopings(prevTopings => [...prevTopings, `Avocado`]);
-                break;
-            case 'Broccoli':
-                setBroccoli(!broccoli)
-                setSelectedTopings(prevTopings => [...prevTopings, `Broccoli`]);
-                break;
-            case 'Onions':
-                setOnions(!onions)
-                setSelectedTopings(prevTopings => [...prevTopings, `Onions`]);
-                break;
-            default:
-                console.log('not a toping')
-                break;
-        }
+        // switch (event.target.value) {
+        //     case 'Avocado':
+        //         setAvocado(!avocado)
+        //         // add price
+        //         // if (avocado) { setSelectedTopings(prevTopings => [...prevTopings, `Avocado`]); }
+        //         setSelectedTopings(prevTopings => [...prevTopings, `Avocado`]);
+        //         console.log(event)
+        //         break;
+        //     case 'Broccoli':
+        //         setBroccoli(!broccoli)
+        //         if (broccoli) { setSelectedTopings(prevTopings => [...prevTopings, `Broccoli`]); }
+        //         break;
+        //     case 'Onions':
+        //         setOnions(!onions)
+        //         if (onions) { setSelectedTopings(prevTopings => [...prevTopings, `Onions`]); }
+        //         break;
+        //     default:
+        //         console.log('not a toping')
+        //         break;
+        // }
 
-        if (avocado || broccoli || onions) {
-            console.log(`avocado status: ${avocado}`)
-            console.log(`broccoli status: ${broccoli}`)
-            console.log(`onions status: ${onions}`)
+        if (event.target.checked) {
+            if (selectedTopings.length > 0 && selectedTopings.includes(event.target.value)) {
+                return
+            } else {
+                setSelectedTopings(prevTopings => [ event.target.value, ...prevTopings])
+            }
+        } else {
+            setSelectedTopings(prevTopings => {
+                if (selectedTopings.includes(event.target.value)) {
+                    const topingToRemove = prevTopings.filter(toping => toping !== event.target.value)
+                    return topingToRemove;
+                }
+            })
+
+            // setSelectedTopings()
+            // let found = selectedTopings.find(toping => { return toping === event.target.value });
+            // let found = selectedTopings.indexOf(event.target.value);
+            // let found = selectedTopings.findIndex(toping => { return toping === event.target.value });
+            // if (selectedTopings.length === 1) {
+            //     // selectedTopings.pop();
+            //     selectedTopings = []
+            // } else {
+            //     selectedTopings.splice(found, 1);
+            //     // selectedTopings.filter(toping => { return toping !== event.target.value });
+            // }
         }
     }
 
@@ -118,6 +138,12 @@ export const TopingModal = (props) => {
                     id='add-to-cart-btn'
                 >
                     Add to Cart
+                </button>
+                <button
+                    className='border-2 border-emerald-400'
+                    onClick={() => {console.log(selectedTopings)}}
+                >
+                    check topings
                 </button>
             </div>
         </div>

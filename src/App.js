@@ -12,6 +12,7 @@ function App() {
   const [ menuToAdd, setMenuToAdd ] = useState();
   const [ addToCartBtnClicked, setAddtoCartBtnClicked ] = useState(false);
   const [ pricePerMenu, setPricePerMenu ] = useState(0)
+  const [ selectedTopings, setSelectedTopings ] = useState([])
 
   // toping states
   const [ avocado, setAvocado ] = useState(false);
@@ -91,6 +92,7 @@ function App() {
           onions={onions} setOnions={setOnions}
 
           setAddtoCartBtnClicked={setAddtoCartBtnClicked}
+          selectedTopings={selectedTopings} setSelectedTopings={setSelectedTopings}
         />
       </div>
 
