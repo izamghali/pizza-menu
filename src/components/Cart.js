@@ -9,6 +9,13 @@ export const Cart = (props) => {
 
     const [ mouseHover, setMouseHover ] = useState(false);
 
+    let totalPrice = 0;
+
+    for (let counter = 0; counter < addedCart.length; counter++) {
+        const currentValue = addedCart[counter].price;
+        totalPrice += currentValue;
+    }
+
     return (
         <>
             <div className='
@@ -48,7 +55,7 @@ export const Cart = (props) => {
                     onMouseLeave={() => {setMouseHover(false)}}
                 id="total-btn">
                     <span className=''>{mouseHover ? 'PURCHASE' : 'TOTAL'}</span>
-                    <span className='text-lg font-light'>Price</span>
+                    <span className='text-lg font-bold'>${totalPrice}</span>
                 </button>
             </div>
         </>

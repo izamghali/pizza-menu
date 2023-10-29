@@ -34,7 +34,7 @@ export const List = (props) => {
                             </span>})
                         }
                     </div>
-                    <p className='font-semibold text-lg'>${menu.price + menu.topingPrice}</p>
+                    <p className='font-semibold text-lg'>${menu.price}</p>
                 </div>
             </div>
         })}

@@ -91,7 +91,7 @@ export const TopingModal = (props) => {
             menuToAdd.topings = selectedTopings;
         }
 
-        menuToAdd.topingPrice = topingPrice;
+        menuToAdd.price += topingPrice;
 
         setAddtoCartBtnClicked(true);
         document.getElementById('toping').style.display = 'none';
