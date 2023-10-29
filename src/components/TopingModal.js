@@ -139,12 +139,6 @@ export const TopingModal = (props) => {
                 >
                     Add to Cart
                 </button>
-                <button
-                    className='border-2 border-emerald-400'
-                    onClick={() => {console.log(selectedTopings)}}
-                >
-                    check topings
-                </button>
             </div>
         </div>
     )
