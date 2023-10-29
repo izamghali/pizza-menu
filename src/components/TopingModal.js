@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export const TopingModal = (props) => {
 
     const { 
-        addedCart, setAddedCart,
+        setAddedCart,
         menuToAdd, 
         setAddtoCartBtnClicked,
         selectedTopings, setSelectedTopings

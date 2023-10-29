@@ -67,3 +67,11 @@
         </div>
     </div>
 })}
+
+// Order btn from Card
+<button 
+    className='btn 
+    border-2 border-lightGreen bg-white
+    duration-200 hover:bg-lightGreen
+    text-black'
+>ORDER</button> 

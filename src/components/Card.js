@@ -2,28 +2,19 @@ import React from 'react';
 import { generateID } from '../helpers';
 
 export const Card = (props) => {
-
-    const {
-        addedCart, setAddedCart, 
-        setAddtoCartBtnClicked,
-        setMenuToAdd,
-
-        title, price, img
-
-    } = props;
+    const { setMenuToAdd, title, price, img } = props;
 
     function handleOrder() {
-
         document.getElementById('toping').style.display = 'flex';
 
         const menuToAdd = {
             title: title,
             price: price,
+            img: img,
             id: generateID(),
         } 
 
         setMenuToAdd(menuToAdd);
-
     }
 
     return (
@@ -47,7 +38,6 @@ export const Card = (props) => {
                         </div>
                         <h3 className='text-2xl font-semibold '>{title}</h3>
                         <p className=''>${price}</p>
-                        {/* <button className='btn border-2'>ORDER</button> */}
                     </div>
 
                     <div className='
@@ -63,12 +53,6 @@ export const Card = (props) => {
                         </div>
                         <h3 className='text-2xl font-semibold text-left'>{title}</h3>
                         <p className='text-left'>${price}</p>
-                        {/* <button 
-                            className='btn 
-                            border-2 border-lightGreen bg-white
-                            duration-200 hover:bg-lightGreen
-                            text-black'
-                        >ORDER</button> */}
                     </div>
             </div>
         </>

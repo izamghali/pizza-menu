@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/App.scss';
 
 // components
@@ -18,7 +18,7 @@ function App() {
     {
        title: 'AMERICAN CLASSIC CHEESEBURGER',
        price: 8,
-       img: 'https://plus.unsplash.com/premium_photo-1675451537771-0dd5b06b3985?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+       img: 'https://plus.unsplash.com/premium_photo-1675451537771-0dd5b06b3985?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     {
        title: 'GRILLED BEEF SUPREME',
@@ -31,6 +31,10 @@ function App() {
        img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=1981&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
   ]
+
+  useEffect(() =>{
+    localStorage.clear();
+  })
 
   return (
     <body className='
@@ -73,14 +77,8 @@ function App() {
       </div>
 
       <div className=''>
-        {/* {topings.map(toping => {
-          return <TopingModal 
-            topingName={toping.name}
-            topingPrice={toping.price}
-          />
-        })} */}
         <TopingModal 
-          addedCart={addedCart} setAddedCart={setAddedCart}
+          setAddedCart={setAddedCart}
           menuToAdd={menuToAdd} setPricePerMenu={setPricePerMenu}
 
           setAddtoCartBtnClicked={setAddtoCartBtnClicked}
