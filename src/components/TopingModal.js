@@ -3,12 +3,10 @@ import React, { useState } from 'react';
 export const TopingModal = (props) => {
 
     const { 
-        setAddedCart,
-        menuToAdd, 
+        setAddedCart, menuToAdd, 
         setAddtoCartBtnClicked,
         selectedTopings, setSelectedTopings
     } = props;
-
 
     const topings = [
         { name: 'Avocado', price: 1 }, { name: 'Broccoli', price: 1 }, { name: 'Onions', price: 1 }, { name: 'Zucchini', price: 1 },
@@ -23,7 +21,7 @@ export const TopingModal = (props) => {
     function handleCheckedToping(event) {
         if (event.target.checked) {
             if (selectedTopings.length > 0 && selectedTopings.includes(event.target.value)) {
-                return
+                return // 
             } else {
                 setSelectedTopings(prevTopings => [ event.target.value, ...prevTopings])
             }
@@ -67,18 +65,8 @@ export const TopingModal = (props) => {
     }
 
     return(
-        <div 
-            className='
-                fixed top-0 left-0 bg-black/[0.7] w-full h-full
-                items-center justify-center hidden
-            ' id='toping'>
-
-            <div 
-                className='
-                    w-[30rem] bg-slate-50 p-4 
-                    flex flex-col justify-between space-y-8
-                '
-            >
+        <div id='toping' className='fixed top-0 left-0 bg-black/[0.7] w-full h-full items-center justify-center hidden'>
+            <div className='w-[30rem] bg-slate-50 p-4 flex flex-col justify-between space-y-8'>
                 {/* content container */}
                 <div className='space-y-4'>
                     <div className='flex justify-between'>
@@ -105,14 +93,7 @@ export const TopingModal = (props) => {
                 </div>
 
                 <div className='flex justify-end'>
-                    <button className='
-                        rounded-xl py-4 px-8 text-xl font-bold bg-redBurn 
-                        hover:-translate-y-1 duration-300 
-                        w-fit
-                    '
-                        onClick={handleAddToCartToping}
-                        id='add-to-cart-btn'
-                    >
+                    <button id='add-to-cart-btn' className='rounded-xl py-4 px-8 text-xl font-bold bg-redBurn hover:-translate-y-1 duration-300 w-fit' onClick={handleAddToCartToping}>
                         Add to Cart
                     </button>
                 </div>

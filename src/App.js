@@ -55,22 +55,12 @@ function App() {
   cartDisappearAuto()
     
   return (
-    <body className='
-      flex flex-col lg:flex-row justify-between
-    ' id='App'>
+    <body className='flex flex-col lg:flex-row justify-between' id='App'>
 
       {/* Menu Section */}
-      <div className='
-        lg:h-screen w-full 
-        py-6 lg:pl-6 px-6
-        lg:overflow-scroll
-        
-      ' id='card-container'>
+      <div className='lg:h-screen w-full py-6 lg:pl-6 px-6 lg:overflow-scroll' id='card-container'>
         <h2 className='heading-text mb-3 lg:text-left text-center'>Pizza List</h2>
-        <div 
-          className="card-container
-          flex flex-wrap lg:justify-start justify-center gap-10
-        " >
+        <div className='card-container flex flex-wrap lg:justify-start justify-center gap-10'>
           {menus.map(menu => {
             return <Card 
               addedCart={addedCart} setAddedCart={setAddedCart}
@@ -87,19 +77,13 @@ function App() {
       </div>
 
       {/* Cart */}
-      {/* TODO:  figure out how to make cart not fixed when scrolled to the bottom so the menu list can be seen */}
       <div className=''>
-        <Cart
-          addedCart={addedCart} addToCartBtnClicked={addToCartBtnClicked}
-          pricePerMenu={pricePerMenu}
-        />
+        <Cart addedCart={addedCart} addToCartBtnClicked={addToCartBtnClicked} pricePerMenu={pricePerMenu}/>
       </div>
 
       <div className=''>
         <TopingModal 
-          setAddedCart={setAddedCart}
-          menuToAdd={menuToAdd} setPricePerMenu={setPricePerMenu}
-
+          setAddedCart={setAddedCart} menuToAdd={menuToAdd} setPricePerMenu={setPricePerMenu}
           setAddtoCartBtnClicked={setAddtoCartBtnClicked}
           selectedTopings={selectedTopings} setSelectedTopings={setSelectedTopings}
         />
